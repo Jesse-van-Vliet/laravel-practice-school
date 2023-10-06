@@ -42,7 +42,7 @@ er zijn namelijk automatische testen beschikbaar waar op alle details wordt gele
 Voer de volgende stappen uit om met deze opdrachten aan de slag te gaan.
 <ul>
     <li>Clone het project in een directory</li>
-    <li>Maak in wamp.net een project aan en zet de document root op de public map. Gebruik minimaal php versie 8</li>
+    <li>Maak in wamp.net een project aan en zet de document root op de public map. Gebruik minimaal php versie 8.2</li>
     <li>Zorg dat je bij de phpMyAdmin kan komen</li>
     <li>Maak 2 databases aan, 1 voor de website en 1 voor testen
         <ul>
