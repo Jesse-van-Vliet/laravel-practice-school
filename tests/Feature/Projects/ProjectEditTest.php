@@ -20,7 +20,7 @@ test('admin can see the project edit page', function()
         ->assertSee($this->project->name)
         ->assertSee($this->project->description)
         ->assertStatus(200);
-})->group('ProjectEdit', 'Opdracht11', 'Website');
+})->group('ProjectEdit', 'Opdracht13', 'Website');
 
 test('teacher can see the product edit page', function()
 {
@@ -32,7 +32,7 @@ test('teacher can see the product edit page', function()
         ->assertSee($this->project->name)
         ->assertSee($this->project->description)
         ->assertStatus(200);
-})->group('ProjectEdit', 'Opdracht11', 'Website');
+})->group('ProjectEdit', 'Opdracht13', 'Website');
 
 test('student can see the product edit page', function()
 {
@@ -44,12 +44,12 @@ test('student can see the product edit page', function()
         ->assertSee($this->project->name)
         ->assertSee($this->project->description)
         ->assertStatus(200);
-})->group('ProjectEdit', 'Opdracht11', 'Website');
+})->group('ProjectEdit', 'Opdracht13', 'Website');
 
 test('guest can not see the project edit page', function(){
     $this->get(route('projects.edit',['project' => $this->project->id]))
         ->assertRedirect(route('login'));
-})->group('ProjectEdit', 'Opdracht11', 'Website');
+})->group('ProjectEdit', 'Opdracht13', 'Website');
 
 
 

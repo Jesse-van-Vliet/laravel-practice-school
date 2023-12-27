@@ -19,6 +19,24 @@ beforeEach(function (){
     ]);
 });
 
+test('the student user is correct in the database', function(){
+    $user = User::find(1);
+    expect($user->name)->toBe('student')
+        ->and($user->email)->toBe('student@tcrmbo.nl');
+})->group('Opdracht12');
+
+test('the teacher user is correct in the database', function(){
+    $user = User::find(2);
+    expect($user->name)->toBe('teacher')
+        ->and($user->email)->toBe('teacher@tcrmbo.nl');
+})->group('Opdracht12');
+
+test('the admin user is correct in the database', function(){
+    $user = User::find(3);
+    expect($user->name)->toBe('admin')
+        ->and($user->email)->toBe('admin@tcrmbo.nl');
+})->group('Opdracht12');
+
 // Tests voor activity
 test('Data from factory is in the activity table', function () {
     $this->assertDatabaseHas('activities', [
