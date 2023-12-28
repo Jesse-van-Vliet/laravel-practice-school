@@ -15,4 +15,4 @@ test('The table tasks have at least 10 items from the TaskSeeder', function () {
     $this->seed('TaskSeeder');
     $tasks = Task::all();
     expect(count($tasks))->toBeGreaterThanOrEqual(10);
-})->group('Opdracht14');
+})->group('Opdracht16');
