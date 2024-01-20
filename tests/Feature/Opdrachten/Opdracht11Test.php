@@ -16,7 +16,7 @@ test('the visitor can view the public projects page', function()
 {
     $this->withoutExceptionHandling();
     $this
-        ->get(route('public.projects.index'))
+        ->get(route('open.projects.index'))
         ->assertViewIs('open.projects.index')
         ->assertSee($this->project->id)
         ->assertSee($this->project->name)
