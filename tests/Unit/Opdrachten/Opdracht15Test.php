@@ -40,8 +40,8 @@ test('Data from factory is in the tasks table', function () {
     $this->assertDatabaseHas('tasks', [
         'id' => $this->task->id,
         'task' => $this->task->task,
-        'begindate' => $this->task->begindate->toDateString(),
-        'enddate' => $this->task->enddate->toDateString(),
+        'begindate' => $this->task->begindate->toDateTimeString(),
+        'enddate' => $this->task->enddate->toDateTimeString(),
         'user_id' => $this->task->user_id,
         'project_id' => $this->task->project_id,
         'activity_id' => $this->task->activity_id
