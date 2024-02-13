@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.layoutadmin');
 });
+
+Route::resource('/admin/projects', ProjectController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
