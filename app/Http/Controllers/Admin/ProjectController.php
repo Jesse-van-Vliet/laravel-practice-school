@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ProjectController extends Controller
 {
@@ -25,15 +26,22 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         //
+//        $project = Project::create(['name' => $request->name, 'description' => $request->description]);
+        $project = new Project();
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->save();
+
+        return to_route('projects.index');
     }
 
     /**
