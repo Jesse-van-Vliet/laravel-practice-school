@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectStoreRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class ProjectController extends Controller
 {
@@ -31,7 +33,10 @@ class ProjectController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param ProjectStoreRequest $request
+     * @return RedirectResponse
      */
+
     public function store(Request $request): RedirectResponse
     {
         //

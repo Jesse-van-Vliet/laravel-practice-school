@@ -18,6 +18,21 @@
             <h1>Projecten admin</h1>
         </div>
 
+{{--        end headers --}}
+
+{{--        errors--}}
+
+        @if($errors->any())
+            <div class="bg-red-200 text-red-900 rounded-lg shadow-md p-6 pr-10 mb-8" style="...">
+                <ul class="nt-3 list-disc list-inside text-sm text-red-600">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+
+            </div>
+        @endif
+
         <div class="card-body grid grid-cols-1 gap-6 lg:grid-cols-1">
             <div class="p-4">
                 <form id="form" class="shadow-md rouded-lg px-8 pt-6 pb-8 mb-4" action="{{ route('projects.store')  }}" method="POST">
