@@ -37,7 +37,7 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center space-x-4 text-sm">
-                                <a href="#">Delete</a>
+                                <a href="{{ route('projects.delete', ['project' => $project->id]) }}">Delete</a>
                             </div>
                         </td>
                     </tr>

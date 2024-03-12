@@ -97,8 +97,22 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+
+    /**
+     * Store a newly created resource in storage.
+     * @param Project $project
+     * @return view
+     */
+    public function delete(Project $project): view
+    {
+        return view('admin.projects.delete', ['project' => $project]);
+    }
+
+
+
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return to_route('projects.index')->with('status', "project $project->name deleted successfully");
     }
 }

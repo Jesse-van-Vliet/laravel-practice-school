@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('layouts.layoutadmin');
 });
 
+Route::get('/admin/projects/{project}/delete}', [ProjectController::class, 'delete'])->name('projects.delete');
 Route::resource('/admin/projects', ProjectController::class);
 
 Route::get('/dashboard', function () {
