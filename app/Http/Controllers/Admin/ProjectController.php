@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectStoreRequest;
+use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -37,7 +38,7 @@ class ProjectController extends Controller
      * @return RedirectResponse
      */
 
-    public function store(Request $request): RedirectResponse
+    public function store(ProjectStoreRequest $request): RedirectResponse
     {
         //
 //        $project = Project::create(['name' => $request->name, 'description' => $request->description]);
@@ -52,9 +53,14 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
+
+//    @param Project $project
+//    @return View
+
+
     public function show(Project $project)
     {
-        //
+        return view ( "admin.projects.show", ['project' => $project]);
     }
 
     /**
@@ -62,15 +68,30 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', ['project' => $project]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+//    @param ProjectUpdateRequest $request
+//    @param Project $project
+//    @return RedirectResponse
+
+    /**
+     * Store a newly created resource in storage.
+     * @param ProjectUpdateRequest $request
+     * @param Project $project
+     * @return RedirectResponse
+     */
+
+    public function update(ProjectUpdateRequest $request, Project $project): RedirectResponse
     {
-        //
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->save();
+
+        return to_route('projects.index')->with('status', "project $project->name updated successfully");
     }
 
     /**
