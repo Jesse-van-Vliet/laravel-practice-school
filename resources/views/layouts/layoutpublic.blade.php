@@ -8,7 +8,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 
-    <title> tcr webshop</title>
+    <title>home</title>
 
 </head>
 <body>

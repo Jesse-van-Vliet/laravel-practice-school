@@ -16,8 +16,8 @@ use App\Http\Controllers\Admin\ProjectController;
 */
 
 Route::get('/', function () {
-    return view('layouts.layoutadmin');
-});
+    return view('layouts.layoutpublic');
+})->name('home');
 
 Route::get('/admin/projects/{project}/delete}', [ProjectController::class, 'delete'])->name('projects.delete');
 Route::resource('/admin/projects', ProjectController::class);
