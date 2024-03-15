@@ -25,23 +25,29 @@
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y">
+                @can('show project')
                 @foreach ($projects as $project)
                     <tr class="text-gray-700">
                         <td class="px-6 py-4 whitespace-nowrap">{{ $project->id }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $project->name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap"><a href="{{ route('projects.show', ['project' => $project->id]) }}">Details</a></td>
+                        @can('edit project')
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center space-x-4 text-sm">
                                 <a href="{{ route('projects.edit', ['project' => $project->id]) }}">Edit</a>
                             </div>
                         </td>
+                        @endcan
+                        @can('delete project')
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center space-x-4 text-sm">
                                 <a href="{{ route('projects.delete', ['project' => $project->id]) }}">Delete</a>
                             </div>
                         </td>
+                            @endcan
                     </tr>
                 @endforeach
+                    @endcan
                 </tbody>
             </table>
         </div>
