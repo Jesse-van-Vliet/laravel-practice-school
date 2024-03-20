@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Task;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Project;
+
 
 class ProjectSeeder extends Seeder
 {
@@ -13,6 +15,6 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-       Project::factory()->times(25)->create();
+       Project::factory()->times(25)->has(Task::factory()->times(5))->create();
     }
 }
