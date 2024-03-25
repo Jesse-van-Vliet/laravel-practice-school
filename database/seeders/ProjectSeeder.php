@@ -15,6 +15,6 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-       Project::factory()->times(25)->has(Task::factory()->times(5))->create();
+       Project::factory()->times(5)->has(Task::factory()->times(2))->create();
     }
 }
