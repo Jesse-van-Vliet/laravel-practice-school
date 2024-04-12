@@ -1,6 +1,6 @@
 @extends('layouts.layoutpublic')
 
-@section('content')
+{{--@section('content')--}}
     <div class="w-full px-6 py-12 bg-gray-100 border-t">
         <div class="container max-w-4xl mx-auto pb-10 flex flex-wrap">
             @foreach($projects as $project)

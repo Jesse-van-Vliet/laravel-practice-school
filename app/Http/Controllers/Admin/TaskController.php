@@ -6,15 +6,30 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TaskStoreRequest;
 use App\Http\Requests\TaskUpdateRequest;
 use App\Models\Task;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
+
 
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @return View.
      */
-    public function index()
+
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//        $this->middleware('permission:index task', ['only' => ['index']] );
+//        $this->middleware('permission:show task', ['only' => ['show']] );
+//        $this->middleware('permission:create task', ['only' => ['create', 'store']] );
+//        $this->middleware('permission:edit task', ['only' => ['edit', 'update']] );
+//        $this->middleware('permission:delete task', ['only' => ['delete', 'destroy']] );
+//    }
+
+    public function index(): View
     {
-        //
+        $tasks = Task::with( 'project', 'activity')->paginate(15);
+        Return view('admin.tasks.index', ['tasks' => $tasks]);
     }
 
     /**

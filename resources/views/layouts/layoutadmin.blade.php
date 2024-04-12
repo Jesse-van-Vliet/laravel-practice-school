@@ -349,8 +349,14 @@
                     <i class="fad fa-times-circle"></i>
                 </button>
             </div>
-            <!-- end sidebar toggle -->
 
+
+                @hasanyrole('admin|teacher|student')
+            <!-- end sidebar toggle -->
+            <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">Admin</p>
+            <a href=" {{route('projects.index')}}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">Project Admin</a>
+            <a href=" {{route('tasks.index')}}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">Task Admin</a>
+                @endhasanyrole
             <p class="uppercase text-xs text-gray-600 mb-4 tracking-wider">homes</p>
 
             <!-- link -->
@@ -363,6 +369,7 @@
             <!-- link -->
             <a href="./index-1.html" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
                 <i class="fad fa-shopping-cart text-xs mr-2"></i>
+                ecommerce dashboard
                 ecommerce dashboard
             </a>
             <!-- end link -->

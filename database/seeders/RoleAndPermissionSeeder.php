@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
+
 class RoleAndPermissionSeeder extends Seeder
 {
     /**
@@ -22,13 +23,19 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'edit project']);
         Permission::create(['name' => 'delete project']);
 
+//        Permission::create(['name' => 'index task']);
+//        Permission::create(['name' => 'show task']);
+//        Permission::create(['name' => 'create task']);
+//        Permission::create(['name' => 'edit task']);
+//        Permission::create(['name' => 'delete task']);
+
         $student = Role::create(['name' => 'student'])
-            ->givePermissionTo('index project', 'show project', 'create project', 'edit project');
+            ->givePermissionTo('index project', 'show project', 'create project', 'edit project' , 'delete project');
 
         $teacher = Role::create(['name' => 'teacher'])
             ->givePermissionTo('index project', 'show project', 'create project', 'edit project', 'delete project');
 
         $admin = Role::create(['name' => 'admin'])
-            ->givePermissionto(Permission::all());
+            ->givePermissionTo(Permission::all());
     }
 }
