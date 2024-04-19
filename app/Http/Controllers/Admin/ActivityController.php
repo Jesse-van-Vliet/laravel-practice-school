@@ -12,9 +12,10 @@ class ActivityController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): view
     {
-        //
+        $activities = Activity::all();
+        return view('admin.activities.index', ['activity' => $activities]);
     }
 
     /**

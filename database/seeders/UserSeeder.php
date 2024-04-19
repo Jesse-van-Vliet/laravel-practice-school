@@ -14,12 +14,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+
         $student = User::factory()->create([
             'name' => 'student',
             'email' => 'student@tcrmbo.nl',
             'password' => Hash::make('student')
         ]);
         $student->assignRole('student');
+       ;
+
+
 
 
         $teacher= User::factory()->create([
@@ -35,6 +39,11 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin')
         ]);
         $admin->assignRole('admin');
+
+
+
+
+
 
     }
 }

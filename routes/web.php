@@ -29,7 +29,8 @@ Route::get('projects', [\App\Http\controllers\open\ProjectController::class, 'in
 Route::group(['middleware' => ['role:teacher|admin|student']], function(){
     Route::get('/admin/projects/{project}/delete}', [Admin\ProjectController::class, 'delete'])->name('projects.delete');
     Route::resource('/admin/projects', Admin\ProjectController::class);
-//    Route::get('/admin/tasks/{task}/delete}', [Admin\TaskController::class, 'delete'])->name('tasks.delete');
+
+    Route::get('/admin/tasks/{task}/delete}', [Admin\TaskController::class, 'delete'])->name('tasks.delete');
     Route::resource('/admin/tasks', Admin\TaskController::class);
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -37,7 +38,7 @@ Route::group(['middleware' => ['role:teacher|admin|student']], function(){
 
 });
 
-Route::resource('/admin/tasks', Admin\TaskController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

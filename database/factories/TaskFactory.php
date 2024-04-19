@@ -24,7 +24,7 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            "task" => $this->faker->word(),
+            "task" => substr($this->faker->word(), 0, 200),
             "begindate" => Carbon::today()->subDays(random_int(0, 365)),
             "enddate" => Carbon::today()->subDays(random_int(0, 365)),
             "user_id" => User::all()->random()->id,
