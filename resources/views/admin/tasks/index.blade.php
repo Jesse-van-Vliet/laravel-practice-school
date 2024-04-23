@@ -42,7 +42,7 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">project</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">user</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">actvity</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Details</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Details</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edit</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delete</th>
                 </tr>
@@ -60,7 +60,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ optional($task->activity)->name }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">Details</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><a href="{{ route('tasks.show', ['task' => $task->id]) }}">Details</a></td>
 {{--                            @can('edit task')--}}
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center space-x-4 text-sm">

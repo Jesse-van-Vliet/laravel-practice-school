@@ -21,8 +21,9 @@
         {{--        content--}}
         <div class="py-4 px-6">
             <h2 class="text-lg font-semibold text-gray-800 "> Project details </h2>
-            @foreach($tasks as $task)
-                <p class="py-2 text-lg text-gray-700">ID: {{$task->id}}</p>
+            @can('show task')
+
+                <p class="py-2 text-lg text-gray-700">ID: {{$task->id}} </p>
                 <p class="py-2 text-lg text-gray-700">Naam: {{$task->task}}</p>
                 <p class="py-2 text-lg text-gray-700">begindate: {{$task->begindate}}
                 @if($task->enddate)
@@ -32,10 +33,10 @@
                     <p class="py-2 text-lg text-gray-700">begindate: {{$task->user->name}}</p>
                 @endif
                 <p class="py-2 text-lg text-gray-700">project name: {{$task->project->name}}</p>
-                <p class="py-2 text-lg text-gray-700">activity: {{$task->activity}}</p>
-                <p class="py-2 text-lg text-gray-700">Datum: {{$project->created_at}}</p>
-            @endforeach
-        </div>
+                <p class="py-2 text-lg text-gray-700">activity: {{$task->activity->name}}</p>
+                <p class="py-2 text-lg text-gray-700">Datum: {{$task->created_at}}</p>
+                  </div>
+        @endcan
 
 
     </div>
