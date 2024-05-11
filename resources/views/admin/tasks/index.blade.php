@@ -73,7 +73,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center space-x-4 text-sm">
                                         <a>Delete</a>
-{{--                                        <a href="{{ route('tasks.delete', ['task' => $task->id]) }}">Delete</a>--}}
+                                        <a href="{{ route('tasks.delete', ['task' => $task->id]) }}">Delete</a>
                                     </div>
                                 </td>
 {{--                            @endcan--}}
