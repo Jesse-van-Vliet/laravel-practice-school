@@ -65,7 +65,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center space-x-4 text-sm">
 {{--                                        <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">Edit</a>--}}
-                                        <a >Edit</a>
+                                        <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">edit</a>
                                     </div>
                                 </td>
 {{--                            @endcan--}}

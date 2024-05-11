@@ -29,7 +29,7 @@ test('the task need to be at least 10 characters', function () {
 
 test('the task can only be 200 characters max', function () {
     $admin = User::find(3);
-    $task = Task::factory()->make(['task' => $this->faker->paragraph(6)]);
+    $task = Task::factory()->make(['task' => fake()->paragraph(12)]);;
 
     Laravel\be($admin)
         ->patchJson(route('tasks.update',['task' => $this->task->id]), $task->toArray())

@@ -18,6 +18,7 @@ use Illuminate\Http\RedirectResponse;
 
 
 
+
 class TaskController extends Controller
 {
     /**
@@ -85,18 +86,35 @@ class TaskController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @param Task $task
+     * @return View
      */
-    public function edit(Task $task)
+    public function edit(Task $task):view
     {
-        //
+        $project = Project::all();
+        $activity = Activity::all();
+        $users = User::all();
+
+        return view('admin.tasks.edit', ['task' => $task, 'project' => $project, 'activity' => $activity, 'users' => $users]);
     }
 
     /**
      * Update the specified resource in storage.
+     * @param TaskUpdateRequest $request
+        * @param Task $task
+     * @return RedirectResponse
      */
     public function update(TaskUpdateRequest $request, Task $task)
     {
-        //
+        $task->task = $request->task;
+        $task->begindate = $request->begindate;
+        $task->enddate = $request->enddate;
+        $task->project_id = $request->project_id;
+        $task->activity_id = $request->activity_id;
+        $task->user_id = $request->user_id;
+        $task->save();
+
+        return to_route('tasks.index')->with('status', "Task $task->task updated successfully");
     }
 
     /**
